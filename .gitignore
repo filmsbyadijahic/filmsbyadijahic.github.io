@@ -1,9 +1,8 @@
-# The loose archive of old photos — only the three series subfolders are used
-# by the site. Everything else in here is the raw Wix media dump (~319 MB).
+# Only the per-series subfolders of images/photography/ belong to the site.
+# Everything sitting loose in that folder is the raw Wix media dump (~319 MB).
+# Ignore the loose files, keep every subfolder (so new series need no edit here).
 images/photography/*
-!images/photography/americana/
-!images/photography/summer/
-!images/photography/skin-mag/
+!images/photography/*/
 
 # OS cruft
 .DS_Store
