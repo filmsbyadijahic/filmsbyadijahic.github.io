@@ -1,0 +1,11 @@
+# The loose archive of old photos — only the three series subfolders are used
+# by the site. Everything else in here is the raw Wix media dump (~319 MB).
+images/photography/*
+!images/photography/americana/
+!images/photography/summer/
+!images/photography/skin-mag/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini

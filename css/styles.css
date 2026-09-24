@@ -1,0 +1,603 @@
+/* ==========================================================================
+   adijahicfilm — site styles
+   Dark "screening room" palette. The posters are hand-drawn line art on
+   white, so they are mounted as lit paper against the dark page.
+   ========================================================================== */
+
+:root {
+  --bg:          #0c0c0d;
+  --bg-raised:   #141416;
+  --bg-sunken:   #08080a;
+  --rule:        #26262a;
+  --text:        #ece7df;
+  --text-muted:  #9b958b;
+  --text-faint:  #6d6862;
+  --accent:      #c9a77c;   /* warm pencil-and-paper tone from the posters */
+  --accent-soft: #8c7358;
+  --paper:       #f6f2ea;
+  --maxw:        1080px;
+  --maxw-prose:  680px;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --sans:  ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover, a:focus-visible { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; margin: 0 0 0.5em; }
+h1 { font-size: clamp(2.1rem, 5.5vw, 3.6rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+h3 { font-size: 1.15rem; }
+p  { margin: 0 0 1.1em; }
+
+.wrap      { max-width: var(--maxw);       margin-inline: auto; padding-inline: 24px; }
+.wrap-prose{ max-width: var(--maxw-prose); margin-inline: auto; padding-inline: 24px; }
+
+/* Small caps label used above section headings and hero titles */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 0.9em;
+}
+.eyebrow .dot { color: var(--accent-soft); padding: 0 0.4em; }
+
+/* --------------------------------------------------------------------------
+   Header / navigation — one tab per film
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(12, 12, 13, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.brand {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text);
+  white-space: nowrap;
+}
+.brand:hover { color: var(--accent); text-decoration: none; }
+
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 2px;
+  margin: 0 0 0 auto;
+  padding: 0;
+}
+.nav-links a {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  padding: 6px 11px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--text); background: var(--bg-raised); text-decoration: none; }
+.nav-links a[aria-current="page"] { color: var(--text); box-shadow: inset 0 -1px 0 var(--accent); }
+.nav-links .nav-sep {
+  width: 1px; height: 16px; background: var(--rule); margin: 0 8px;
+}
+
+/* --------------------------------------------------------------------------
+   Home hero — the new feature
+   -------------------------------------------------------------------------- */
+
+.hero {
+  border-bottom: 1px solid var(--rule);
+  background:
+    radial-gradient(1100px 520px at 72% 18%, rgba(201, 167, 124, 0.09), transparent 62%),
+    var(--bg);
+}
+.hero-inner {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: clamp(43px, 7.2vw, 94px) 24px clamp(40px, 6.3vw, 79px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: center;
+}
+.hero-title { margin-bottom: 0.35em; text-wrap: balance; }
+.hero-logline {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-style: italic;
+  color: var(--text);
+  max-width: 34ch;
+  margin-bottom: 1.1em;
+}
+.hero-credit {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+  margin-bottom: 1.8em;
+}
+.hero-credit strong { color: var(--text); font-weight: 600; }
+
+/* Status pill */
+.status {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent-soft);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 1.4em;
+}
+
+/* Buttons */
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 11px 20px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--text);
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #17130e; font-weight: 600; }
+.btn-primary:hover { background: var(--text); border-color: var(--text); color: #17130e; }
+
+/* --------------------------------------------------------------------------
+   Poster mount — white line art presented as lit paper
+   -------------------------------------------------------------------------- */
+
+.poster {
+  display: block;            /* .poster is used on <a>, which is inline by default */
+  background: var(--paper);
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5), 0 18px 46px rgba(0,0,0,0.55);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.poster img { width: 100%; }
+a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0.5), 0 26px 60px rgba(0,0,0,0.6); }
+.poster-hero { max-width: 340px; margin-inline: auto; }
+
+/* Wide key still under a film hero */
+.banner-wrap {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: clamp(25px, 3.6vw, 47px) 24px 0;
+}
+.film-banner {
+  width: 100%;
+  border-radius: 2px;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive video embed (Vimeo) */
+.video-embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-raised);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.5);
+}
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Sections
+   -------------------------------------------------------------------------- */
+
+.section { padding: clamp(43px, 6.3vw, 79px) 0; }
+.section + .section { border-top: 1px solid var(--rule); }
+.section-sunken { background: var(--bg-sunken); }
+.section-head { margin-bottom: 2em; }
+.section-head h2 { margin-bottom: 0.2em; }
+.lede { font-size: 1.12rem; color: var(--text-muted); max-width: 60ch; }
+
+/* Film index grid — one card per film */
+.film-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: clamp(26px, 4vw, 44px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.film-grid > li { display: flex; flex-direction: column; }
+.film-grid .poster, .film-grid .poster-empty { width: 100%; }
+
+.film-card-title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 1em 0 0.15em;
+  line-height: 1.3;
+}
+.film-card-title a { color: inherit; }
+.film-card-title a:hover { color: var(--accent); text-decoration: none; }
+
+.film-card-meta {
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+.film-card-logline { font-size: 0.95rem; font-style: italic; color: var(--text-muted); margin-top: 0.5em; }
+
+/* Placeholder poster block for films with no art yet */
+.poster-empty {
+  display: flex;
+  width: 100%;
+  background: var(--bg-raised);
+  border: 1px dashed var(--rule);
+  border-radius: 2px;
+  aspect-ratio: 5 / 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  text-align: center;
+  padding: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Film detail pages
+   -------------------------------------------------------------------------- */
+
+.film-hero {
+  border-bottom: 1px solid var(--rule);
+  padding: clamp(36px, 5.4vw, 68px) 0 clamp(32px, 4.5vw, 58px);
+}
+.film-hero-inner {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 24px;
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 60px);
+  align-items: start;
+}
+.film-meta {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 1.4em;
+}
+.film-meta span + span::before { content: "·"; color: var(--accent-soft); padding: 0 0.6em; }
+
+/* Credits list */
+.credits { list-style: none; margin: 0; padding: 0; font-family: var(--sans); font-size: 0.88rem; }
+.credits li {
+  display: grid;
+  grid-template-columns: minmax(110px, 150px) minmax(0, 1fr);
+  gap: 18px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.credits li:last-child { border-bottom: 0; }
+.credits dt, .credits .role {
+  color: var(--text-faint);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-top: 2px;
+}
+.credits .name { color: var(--text); }
+
+/* Press / festival lists */
+.list-plain { list-style: none; margin: 0; padding: 0; }
+.list-plain li { padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 0.98rem; }
+.list-plain li:last-child { border-bottom: 0; }
+.list-plain .source {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: block;
+}
+
+/* Pull quote */
+.quote {
+  border-left: 2px solid var(--accent-soft);
+  padding: 4px 0 4px 24px;
+  margin: 0 0 1.6em;
+  font-size: 1.08rem;
+  font-style: italic;
+  color: var(--text);
+}
+.quote cite {
+  display: block;
+  margin-top: 0.7em;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-style: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.quote cite a { color: inherit; }
+.quote cite a:hover { color: var(--accent); }
+
+/* Second line of an attribution: who they are, in sentence case */
+.quote cite .cite-role {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.76rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--text-faint);
+}
+
+/* Several quotes in a row need a little air between them */
+.quote + .quote { margin-top: 2em; }
+
+/* Stills gallery */
+.stills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.stills img {
+  width: 100%;
+  display: block;
+  border-radius: 2px;
+}
+.still-empty {
+  background: var(--bg-raised);
+  border: 1px dashed var(--rule);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* Marker for sections still to be filled in */
+.todo {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  background: var(--bg-raised);
+  border-left: 2px solid var(--accent-soft);
+  padding: 12px 16px;
+  margin-bottom: 1.2em;
+}
+
+/* About page portrait */
+.about-grid {
+  display: grid;
+  /* size the first column to the portrait itself so the text sits right beside it */
+  grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+  gap: clamp(22px, 3vw, 34px);
+  align-items: start;
+}
+.about-grid h1 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); }
+.portrait { width: 200px; max-width: 100%; border-radius: 2px; box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+
+
+/* --------------------------------------------------------------------------
+   Photography page
+   -------------------------------------------------------------------------- */
+
+.photo-intro {
+  padding-top: clamp(36px, 5.4vw, 76px);
+  padding-bottom: clamp(16px, 2.7vw, 27px);
+}
+.photo-intro h1 { margin-bottom: 0.3em; }
+
+/* Jump links, sticky under the site header */
+.photo-nav {
+  position: sticky;
+  top: var(--header-h, 54px);
+  z-index: 40;
+  background: rgba(12, 12, 13, 0.94);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 11px 0;
+  margin-bottom: clamp(27px, 3.6vw, 47px);
+}
+.photo-nav-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.photo-nav-link {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 9px 17px;
+}
+.photo-nav-link:hover {
+  color: var(--text);
+  border-color: var(--accent-soft);
+  text-decoration: none;
+}
+.photo-nav-link.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #17130e;
+}
+
+.photo-series {
+  /* clear the sticky header + jump bar when scrolled to */
+  scroll-margin-top: calc(var(--header-h, 54px) + 92px);
+  padding-bottom: clamp(40px, 5.4vw, 79px);
+}
+.series-head { margin-bottom: 1.5em; }
+.series-head h2 { margin-bottom: 0.15em; }
+.series-meta {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0;
+}
+.series-meta .dot { color: var(--accent-soft); padding: 0 0.3em; }
+
+/* Masonry-ish columns keep portrait and landscape frames together */
+.gallery { columns: 3; column-gap: 18px; }
+.shot { break-inside: avoid; margin: 0 0 18px; }
+.shot img {
+  width: 100%;
+  display: block;
+  border-radius: 2px;
+  background: var(--bg-raised);
+}
+
+@media (max-width: 860px) { .gallery { columns: 2; } }
+@media (max-width: 520px) { .gallery { columns: 1; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  background: var(--bg-sunken);
+  padding: 43px 0 50px;
+  font-family: var(--sans);
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+.footer-inner {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 48px;
+  justify-content: space-between;
+}
+.footer-links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 18px; }
+.footer-note { color: var(--text-faint); font-size: 0.76rem; }
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 860px) {
+  body { font-size: 17px; }
+
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 12px 0 4px;
+    border-top: 1px solid var(--rule);
+  }
+  .nav-inner { flex-wrap: wrap; }
+  .nav-links.is-open { display: flex; }
+  .nav-links a { padding: 12px 4px; border-bottom: 1px solid var(--rule); border-radius: 0; }
+  .nav-links .nav-sep { display: none; }
+
+  .hero-inner,
+  .film-hero-inner,
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hero-inner { padding-top: 44px; }
+  .poster-hero { max-width: 260px; margin-inline: 0; }
+  .film-hero-inner .poster { max-width: 240px; }
+  .credits li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+@media print {
+  body { background: #fff; color: #000; }
+  .site-header, .site-footer, .btn-row { display: none; }
+}

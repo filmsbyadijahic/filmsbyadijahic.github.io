@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  FILM PAGE TEMPLATE
+  To add a film:
+    1. Copy this file to films/<slug>.html  (e.g. films/the-new-short.html)
+    2. Replace every {{TOKEN}} below.
+    3. Add aria-current="page" to this film's own link in the nav.
+    4. Add one <li> for the film to the nav in EVERY other page
+       (index.html, about.html, and each films/*.html).
+    5. Add a card for it to the "Filmography" grid in index.html.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}} ({{YEAR}}) — Adi Jahić</title>
+<meta name="description" content="{{TITLE}} ({{YEAR}}), written and directed by Adi Jahić. {{LOGLINE}}">
+<meta name="author" content="Adi Jahić">
+<link rel="icon" href="../images/favicon_io/favicon.ico" sizes="any">
+<link rel="icon" href="../images/favicon_io/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../images/favicon_io/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="../images/favicon_io/apple-touch-icon.png">
+<link rel="manifest" href="../images/favicon_io/site.webmanifest">
+<meta property="og:type" content="video.movie">
+<meta property="og:title" content="{{TITLE}} ({{YEAR}})">
+<meta property="og:description" content="{{LOGLINE}}">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav-inner" aria-label="Main">
+    <a class="brand" href="../index.html">Adi Jahić</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li class="nav-sep" aria-hidden="true"></li>
+      <li><a href="yesterday-nothing-in-my-life-changed.html" title="Yesterday, Nothing In My Life Changed">Yesterday, Nothing&hellip;</a></li>
+      <li><a href="things-we-like.html">Things We Like</a></li>
+      <li><a href="../photography.html">Photography</a></li>
+      <li class="nav-sep" aria-hidden="true"></li>
+      <li><a href="../about.html">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="film-hero">
+    <div class="film-hero-inner">
+      <!-- Swap .poster-empty for a real poster:
+           <div class="poster"><img src="../images/{{SLUG}}-poster.jpg" alt="Poster for {{TITLE}}"></div> -->
+      <div class="poster-empty">Artwork<br>to come</div>
+      <div>
+        <p class="eyebrow">{{FORMAT}}</p>
+        <h1>{{TITLE}}</h1>
+        <p class="film-meta">
+          <span>{{YEAR}}</span>
+          <span>{{FORMAT}}</span>
+          <span>{{RUNTIME}}</span>
+        </p>
+        <p class="hero-logline">{{LOGLINE}}</p>
+        <div class="btn-row">
+          <!-- <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Watch</a> -->
+          <!-- <a class="btn" href="#" target="_blank" rel="noopener">Letterboxd</a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-prose">
+      <p class="eyebrow">Synopsis</p>
+      <p>{{SYNOPSIS}}</p>
+    </div>
+  </section>
+
+  <section class="section section-sunken">
+    <div class="wrap-prose">
+      <p class="eyebrow">Cast &amp; crew</p>
+      <h2>Credits</h2>
+      <ul class="credits">
+        <li><span class="role">Written by</span><span class="name">Adi Jahić</span></li>
+        <li><span class="role">Directed by</span><span class="name">Adi Jahić</span></li>
+        <li><span class="role">Starring</span><span class="name">{{CAST}}</span></li>
+        <li><span class="role">Cinematography</span><span class="name">&mdash;</span></li>
+        <li><span class="role">Editing</span><span class="name">&mdash;</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-prose">
+      <p class="eyebrow">Festivals &amp; press</p>
+      <h2>Screenings</h2>
+      <ul class="list-plain">
+        <li><span class="source">Premiere</span>{{PREMIERE}}</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-sunken">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Gallery</p>
+        <h2>Stills</h2>
+      </div>
+      <ul class="stills">
+        <li class="still-empty">Still 01</li>
+        <li class="still-empty">Still 02</li>
+        <li class="still-empty">Still 03</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <p>Adi Jahić &mdash; Providence &amp; Los Angeles</p>
+      <p class="footer-note">&copy; <span data-year>2026</span> Adi Jahić. All rights reserved.</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="https://letterboxd.com/godspeed_aj/" target="_blank" rel="noopener">Letterboxd</a></li>
+      <li><a href="https://vimeo.com/adijahic" target="_blank" rel="noopener">Vimeo</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../js/site.js"></script>
+</body>
+</html>
