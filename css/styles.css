@@ -417,6 +417,10 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
   margin: 0;
   padding: 0;
 }
+/* Behind-the-scenes runs four across, stepping down on narrower screens */
+.stills-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 900px) { .stills-4 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .stills-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
 .stills img {
   width: 100%;
   display: block;
@@ -456,7 +460,30 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
   align-items: start;
 }
 .about-grid h1 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); }
-.portrait { width: 200px; max-width: 100%; border-radius: 2px; box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+/* Left column of the About page: the portrait plus captioned photos,
+   all the same width. */
+.about-photos {
+  width: 286px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.about-photos figure { margin: 0; }
+.about-photos img {
+  width: 100%;
+  border-radius: 2px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+.about-photos figcaption {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--text-faint);
+  margin-top: 8px;
+}
+.portrait { max-width: 100%; border-radius: 2px; box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.about-contact-head { margin-top: 1.6em; }
 
 
 /* --------------------------------------------------------------------------
@@ -551,7 +578,7 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
 
 .about-band {
   display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
+  grid-template-columns: 195px minmax(0, 1fr);
   gap: clamp(20px, 3vw, 34px);
   align-items: center;
   color: var(--text);
@@ -563,7 +590,7 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
 }
 .about-band:hover { border-color: var(--accent-soft); text-decoration: none; }
 .about-band img {
-  width: 150px;
+  width: 195px;
   border-radius: 2px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
@@ -600,8 +627,8 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
 }
 
 @media (max-width: 600px) {
-  .about-band { grid-template-columns: 96px minmax(0, 1fr); gap: 18px; align-items: start; }
-  .about-band img { width: 96px; }
+  .about-band { grid-template-columns: 120px minmax(0, 1fr); gap: 18px; align-items: start; }
+  .about-band img { width: 120px; }
 }
 
 /* --------------------------------------------------------------------------
@@ -665,6 +692,7 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
   .about-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+  .about-photos { width: min(286px, 100%); }
   .hero-inner { padding-top: 44px; }
   .poster-hero { max-width: 260px; margin-inline: 0; }
   .film-hero-inner .poster { max-width: 240px; }

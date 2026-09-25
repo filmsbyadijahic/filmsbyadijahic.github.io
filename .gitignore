@@ -8,3 +8,12 @@ images/photography/*
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Behind-the-scenes camera originals (~128 MB). The site uses images/bts/web/,
+# which is built from these by resizing; keep the originals local only.
+images/bts/*
+!images/bts/web/
+
+# Full-size originals of the two About photos; images/about/ holds the web copies.
+images/00022_15A.JPEG
+images/DSCF5699.jpg
