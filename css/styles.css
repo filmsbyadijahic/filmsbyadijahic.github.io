@@ -136,6 +136,14 @@ p  { margin: 0 0 1.1em; }
    Home hero — the new feature
    -------------------------------------------------------------------------- */
 
+/* The hero's eyebrow carries "NEW FEATURE" - larger and in the accent so it
+   reads before the title, unlike the quiet eyebrows elsewhere. */
+.hero .eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
 .hero {
   border-bottom: 1px solid var(--rule);
   background:
@@ -537,6 +545,56 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
 }
 
 /* --------------------------------------------------------------------------
+   Home page "who made these" band - one clickable card through to About
+   -------------------------------------------------------------------------- */
+
+.about-band {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 34px);
+  align-items: center;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: clamp(18px, 2.5vw, 26px);
+  transition: border-color 0.25s ease;
+}
+.about-band:hover { border-color: var(--accent-soft); text-decoration: none; }
+.about-band img {
+  width: 150px;
+  border-radius: 2px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+.about-band .eyebrow { margin-bottom: 0.5em; }
+.about-band-name {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-weight: 600;
+  margin: 0 0 0.3em;
+}
+.about-band-bio {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 48ch;
+  margin-bottom: 0.9em;
+}
+.about-band-more {
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+.about-band:hover .about-band-more { color: var(--text); }
+
+@media (max-width: 600px) {
+  .about-band { grid-template-columns: 96px minmax(0, 1fr); gap: 18px; align-items: start; }
+  .about-band img { width: 96px; }
+}
+
+/* --------------------------------------------------------------------------
    Footer
    -------------------------------------------------------------------------- */
 
@@ -563,6 +621,16 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
 /* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
+
+/* Two posters per row on phones instead of one full-width one */
+@media (max-width: 600px) {
+  .film-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .film-card-title { font-size: 0.95rem; }
+  .film-card-logline { font-size: 0.85rem; }
+}
 
 @media (max-width: 860px) {
   body { font-size: 17px; }
