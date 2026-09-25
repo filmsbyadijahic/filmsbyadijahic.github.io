@@ -190,21 +190,22 @@ p  { margin: 0 0 1.1em; }
   margin-bottom: 1.4em;
 }
 
-/* Buttons */
-.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+/* Calls to action read as text links, not buttons. The only true button on
+   the site is the About one in the home page's band. */
+.btn-row { display: flex; flex-wrap: wrap; gap: 24px; }
 .btn {
   font-family: var(--sans);
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 11px 20px;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  color: var(--text);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: var(--accent);
 }
-.btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-.btn-primary { background: var(--accent); border-color: var(--accent); color: #17130e; font-weight: 600; }
-.btn-primary:hover { background: var(--text); border-color: var(--text); color: #17130e; }
+.btn:hover { color: var(--text); text-decoration: underline; text-underline-offset: 5px; }
+.btn-primary { background: none; border: 0; color: var(--accent); font-weight: 600; }
+.btn-primary:hover { background: none; color: var(--text); }
 
 /* --------------------------------------------------------------------------
    Poster mount — white line art presented as lit paper
@@ -566,12 +567,12 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
   border-radius: 2px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
-.about-band .eyebrow { margin-bottom: 0.5em; }
+.about-band .eyebrow { margin: 0 0 0.9em; }
 .about-band-name {
   font-family: var(--serif);
   font-size: clamp(1.3rem, 2.4vw, 1.7rem);
   font-weight: 600;
-  margin: 0 0 0.3em;
+  margin: 0 0 0.25em;
 }
 .about-band-bio {
   color: var(--text-muted);
@@ -580,14 +581,23 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
   margin-bottom: 0.9em;
 }
 .about-band-more {
+  display: inline-block;
   font-family: var(--sans);
   font-size: 0.76rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
+  border: 1px solid var(--accent-soft);
+  border-radius: 3px;
+  padding: 9px 18px;
   margin: 0;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
-.about-band:hover .about-band-more { color: var(--text); }
+.about-band:hover .about-band-more {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #17130e;
+}
 
 @media (max-width: 600px) {
   .about-band { grid-template-columns: 96px minmax(0, 1fr); gap: 18px; align-items: start; }
