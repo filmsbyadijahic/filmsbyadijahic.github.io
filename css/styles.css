@@ -84,7 +84,7 @@ p  { margin: 0 0 1.1em; }
 }
 .brand {
   font-family: var(--sans);
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text);
@@ -454,14 +454,19 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
 /* About page portrait */
 .about-grid {
   display: grid;
-  /* size the first column to the portrait itself so the text sits right beside it */
+  /* size the first column to the portrait itself so the text sits beside it */
   grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
-  gap: clamp(22px, 3vw, 34px);
+  row-gap: clamp(22px, 3vw, 34px);
+  column-gap: clamp(38px, 5.5vw, 72px);
   align-items: start;
 }
 .about-grid h1 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); }
-/* Left column of the About page: the portrait plus captioned photos,
-   all the same width. */
+/* About page: portrait top-left, text beside it, captioned photos beneath the
+   portrait. On phones the extra photos move below the text, full width. */
+.about-me    { grid-column: 1; grid-row: 1; }
+.about-text  { grid-column: 2; grid-row: 1 / span 2; }
+.about-extra { grid-column: 1; grid-row: 2; margin-top: 22px; }
+
 .about-photos {
   width: 260px;
   max-width: 100%;
@@ -692,7 +697,11 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
   .about-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+  .about-me    { grid-column: 1; grid-row: 1; width: min(260px, 100%); }
+  .about-text  { grid-column: 1; grid-row: 2; }
+  .about-extra { grid-column: 1; grid-row: 3; width: 100%; margin-top: 4px; }
   .about-photos { width: min(260px, 100%); }
+  .about-extra.about-photos { width: 100%; }
   .hero-inner { padding-top: 44px; }
   .poster-hero { max-width: 260px; margin-inline: 0; }
   .film-hero-inner .poster { max-width: 240px; }
