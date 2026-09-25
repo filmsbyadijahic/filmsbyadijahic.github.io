@@ -463,7 +463,7 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
 /* Left column of the About page: the portrait plus captioned photos,
    all the same width. */
 .about-photos {
-  width: 286px;
+  width: 260px;
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -692,7 +692,7 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
   .about-grid {
     grid-template-columns: minmax(0, 1fr);
   }
-  .about-photos { width: min(286px, 100%); }
+  .about-photos { width: min(260px, 100%); }
   .hero-inner { padding-top: 44px; }
   .poster-hero { max-width: 260px; margin-inline: 0; }
   .film-hero-inner .poster { max-width: 240px; }
