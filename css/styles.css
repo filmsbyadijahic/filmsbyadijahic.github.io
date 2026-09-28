@@ -153,7 +153,7 @@ p  { margin: 0 0 1.1em; }
 .hero-inner {
   max-width: var(--maxw);
   margin-inline: auto;
-  padding: clamp(43px, 7.2vw, 94px) 24px clamp(26px, 3.4vw, 42px);
+  padding: clamp(43px, 7.2vw, 94px) 24px clamp(30px, 4vw, 50px);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
   gap: clamp(32px, 6vw, 72px);
@@ -274,16 +274,25 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
   margin-inline: auto;
   padding-inline: 24px;
 }
-.hero .hero-note { padding-bottom: clamp(40px, 6.3vw, 79px); }
-.hero-note .film-note {
-  max-width: 62ch;
+/* Set apart from the title block above it, so it reads as its own movement
+   within the one panel. */
+.hero .hero-note {
+  padding-top: clamp(34px, 4.6vw, 58px);
+  padding-bottom: clamp(40px, 6.3vw, 79px);
+}
+/* Label, note, frames and link all share one centred measure; the text sits
+   flush left inside it rather than centred line by line. */
+.hero-note > * {
+  max-width: 640px;
   margin-inline: auto;
-  text-align: center;
 }
-.hero-note .note-shots {
-  max-width: 820px;
-  margin: 1.8em auto 0;
+.hero-note .eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--text-faint);
 }
+.hero-note .film-note { max-width: 640px; }
+.hero-note .note-shots { margin: 1.7em auto 1.5em; }
 .note-shots img {
   width: 100%;
   display: block;
