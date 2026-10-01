@@ -460,6 +460,8 @@ a.poster:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0
 .stills-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 900px) { .stills-4 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .stills-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+/* A row of exactly four halves to 2 x 2, rather than 3 + an orphan */
+@media (max-width: 900px) { .stills-quad { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .stills img {
   width: 100%;
   display: block;

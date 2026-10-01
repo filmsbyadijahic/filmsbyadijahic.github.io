@@ -17,3 +17,8 @@ images/bts/*
 # Full-size originals of the two About photos; images/about/ holds the web copies.
 images/00022_15A.JPEG
 images/DSCF5699.jpg
+
+# Yesterday, Nothing In My Life Changed stills, 4K camera originals. The site
+# uses images/stills/ynimlc_stills/web/, built from these by resizing.
+images/stills/ynimlc_stills/*
+!images/stills/ynimlc_stills/web/
