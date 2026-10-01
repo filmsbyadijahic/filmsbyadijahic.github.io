@@ -1,35 +1,27 @@
 <!DOCTYPE html>
-<!--
-  ============================================================================
-  FILM PAGE TEMPLATE
-  To add a film:
-    1. Copy this file to films/<slug>.html  (e.g. films/the-new-short.html)
-    2. Replace every {{TOKEN}} below.
-    3. Add aria-current="page" to this film's own link in the nav.
-    4. Add one <li> for the film to the nav in EVERY other page
-       (index.html, about.html, and each films/*.html).
-    5. Add a card for it to the "Filmography" grid in index.html.
-  ============================================================================
--->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{TITLE}} ({{YEAR}}) — Adi Jahić</title>
-<meta name="description" content="{{TITLE}} ({{YEAR}}), written and directed by Adi Jahić. {{LOGLINE}}">
+<title>Darlings (2019) — Adi Jahić</title>
+<meta name="description" content="Darlings (2019), a short film written and directed by Adi Jahić as an undergraduate.">
 <meta name="author" content="Adi Jahić">
 <link rel="icon" href="../images/favicon_io/favicon.ico" sizes="any">
 <link rel="icon" href="../images/favicon_io/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="../images/favicon_io/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="../images/favicon_io/apple-touch-icon.png">
 <link rel="manifest" href="../images/favicon_io/site.webmanifest">
+<link rel="canonical" href="https://filmsbyadijahic.com/films/darlings.html">
+<meta property="og:url" content="https://filmsbyadijahic.com/films/darlings.html">
 <meta property="og:type" content="video.movie">
-<meta property="og:title" content="{{TITLE}} ({{YEAR}})">
-<meta property="og:description" content="{{LOGLINE}}">
+<meta property="og:title" content="Darlings (2019)">
+<meta property="og:description" content="A short film written and directed by Adi Jahić as an undergraduate.">
+<meta property="og:image" content="../images/darlings-poster.jpg">
 <link rel="stylesheet" href="../css/styles.css?v=202610011805">
 </head>
 <body>
 
+<!-- ======================= HEADER / NAV ======================= -->
 <header class="site-header">
   <nav class="nav-inner" aria-label="Main">
     <a class="brand" href="/"><span class="brand-cap">A</span>di <span class="brand-cap">J</span>ahić</a>
@@ -49,75 +41,57 @@
 
 <main>
 
+  <!-- ======================= FILM HERO ======================= -->
   <section class="film-hero">
     <div class="film-hero-inner">
-      <!-- Swap .poster-empty for a real poster:
-           <div class="poster"><img src="../images/{{SLUG}}-poster.jpg" alt="Poster for {{TITLE}}"></div> -->
-      <div class="poster-empty">Artwork<br>to come</div>
+      <div class="poster">
+        <img src="../images/darlings-poster.jpg" alt="Poster for Darlings: a woman at a window, seen from behind." width="810" height="1200">
+      </div>
       <div>
-        <p class="eyebrow">{{FORMAT}}</p>
-        <h1>{{TITLE}}</h1>
+        <p class="eyebrow">Short film</p>
+        <h1>Darlings</h1>
         <p class="film-meta">
-          <span>{{YEAR}}</span>
-          <span>{{FORMAT}}</span>
-          <span>{{RUNTIME}}</span>
+          <span>2019</span>
+          <span>Short</span>
+          <span>5 min</span>
         </p>
-        <p class="hero-logline">{{LOGLINE}}</p>
+        <!-- TODO: add a logline here, as the two features have -->
         <div class="btn-row">
-          <!-- <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Watch</a> -->
-          <!-- <a class="btn" href="#" target="_blank" rel="noopener">Letterboxd</a> -->
+          <a class="btn btn-primary" href="https://vimeo.com/adijahic/darlings" target="_blank" rel="noopener">Watch on Vimeo</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap-prose">
-      <p class="eyebrow">Synopsis</p>
-      <p>{{SYNOPSIS}}</p>
+  <!-- ======================= FILM ======================= -->
+  <div class="banner-wrap">
+    <div class="video-embed">
+      <iframe src="https://player.vimeo.com/video/1232074812?h=01bf9bae08"
+              title="Darlings (2019)"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen loading="lazy"></iframe>
     </div>
-  </section>
+  </div>
 
-  <section class="section section-sunken">
+  <!-- ======================= CAST & CREW ======================= -->
+  <section class="section">
     <div class="wrap-prose">
       <p class="eyebrow">Cast &amp; crew</p>
       <h2>Credits</h2>
       <ul class="credits">
         <li><span class="role">Written by</span><span class="name">Adi Jahić</span></li>
         <li><span class="role">Directed by</span><span class="name">Adi Jahić</span></li>
-        <li><span class="role">Starring</span><span class="name">{{CAST}}</span></li>
-        <li><span class="role">Cinematography</span><span class="name">&mdash;</span></li>
-        <li><span class="role">Editing</span><span class="name">&mdash;</span></li>
+        <li><span class="role">Starring</span><span class="name">Lena Camille Otalora, Mya Ison</span></li>
+        <!-- TODO: billing taken from the poster - correct it, and add the crew -->
       </ul>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap-prose">
-      <p class="eyebrow">Festivals &amp; press</p>
-      <h2>Screenings</h2>
-      <ul class="list-plain">
-        <li><span class="source">Premiere</span>{{PREMIERE}}</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section section-sunken">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Gallery</p>
-        <h2>Stills</h2>
-      </div>
-      <ul class="stills">
-        <li class="still-empty">Still 01</li>
-        <li class="still-empty">Still 02</li>
-        <li class="still-empty">Still 03</li>
-      </ul>
+      <p><a href="shorts.html">All shorts &rarr;</a></p>
     </div>
   </section>
 
 </main>
 
+<!-- ======================= FOOTER ======================= -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div>
