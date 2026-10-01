@@ -22,3 +22,10 @@ images/DSCF5699.jpg
 # uses images/stills/ynimlc_stills/web/, built from these by resizing.
 images/stills/ynimlc_stills/*
 !images/stills/ynimlc_stills/web/
+
+# Poster artwork at print size (4050 x 6000, ~10 MB the pair). The site uses
+# images/ynimlc-poster-cropped.jpg, resized from the cropped one.
+images/YesterdayNothing_poster_cropped_v4.jpg
+images/YesterdayNothing_poster_framed_v4.jpg
+images/_compare.png
+images/Darlings_poster_v2.jpg
