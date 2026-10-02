@@ -141,16 +141,16 @@ p  { margin: 0 0 1.1em; }
 
 /* Full strip when the window is tall enough. On shorter windows the band
    gives up just enough height to keep "New feature" on the first screen.
-   10% takes a tenth of any trim off the top and the rest off the bottom,
-   so the hats keep their headroom and only the shirts give way. */
+   Pinned to the top: the file carries a strip of mural above the hats, and
+   on wide screens the nav sits on it; any trim comes off the shirts. */
 .photo-hero img {
   display: block;
   width: 100%;
-  aspect-ratio: 1800 / 879;
+  aspect-ratio: 1800 / 967;
   max-height: max(280px, calc(100vh - 184px));
   max-height: max(280px, calc(100svh - 184px));
   object-fit: cover;
-  object-position: center 10%;
+  object-position: center top;
 }
 /* A phone is too narrow for the full strip to have any presence, so there the
    box is deeper and the sides give instead. */
@@ -189,6 +189,38 @@ p  { margin: 0 0 1.1em; }
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
     margin: 0;
     padding-bottom: 16px;
+  }
+}
+
+/* Wide screens, home page only: the nav floats over the photo, white with a
+   light shadow, and turns back into the normal solid bar once the page has
+   scrolled past the photo (site.js adds .is-overlay / .is-solid). Without
+   JavaScript the ordinary sticky bar is used. Below 861px the hamburger menu
+   takes over, so the bar stays solid there. */
+@media (min-width: 861px) {
+  .site-header.is-overlay {
+    position: fixed;
+    left: 0; right: 0; top: 0;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+  .site-header.is-overlay:not(.is-solid) {
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border-bottom-color: transparent;
+  }
+  .site-header.is-overlay:not(.is-solid) .brand,
+  .site-header.is-overlay:not(.is-solid) .nav-links a {
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7), 0 0 8px rgba(0, 0, 0, 0.45);
+  }
+  .site-header.is-overlay:not(.is-solid) .nav-links a { font-weight: 500; }
+  .site-header.is-overlay:not(.is-solid) .nav-links a:hover { background: rgba(0, 0, 0, 0.25); }
+  .site-header.is-overlay:not(.is-solid) .nav-sep { background: rgba(255, 255, 255, 0.35); }
+  /* the header no longer takes up room, so the photo gets its 62px back */
+  .site-header.is-overlay ~ main .photo-hero img {
+    max-height: max(280px, calc(100vh - 122px));
+    max-height: max(280px, calc(100svh - 122px));
   }
 }
 

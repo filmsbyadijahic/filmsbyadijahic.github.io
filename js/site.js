@@ -29,6 +29,20 @@
     window.addEventListener("resize", setHeaderHeight);
   }
 
+  // Home page: the header floats over the photo until the photo has scrolled
+  // past, then becomes the normal solid bar again (styling in styles.css).
+  var photo = document.querySelector(".photo-hero");
+  if (header && photo) {
+    header.classList.add("is-overlay");
+    var syncHeader = function () {
+      var limit = photo.offsetTop + photo.offsetHeight - header.offsetHeight;
+      header.classList.toggle("is-solid", window.pageYOffset > limit - 1);
+    };
+    syncHeader();
+    window.addEventListener("scroll", syncHeader, { passive: true });
+    window.addEventListener("resize", syncHeader);
+  }
+
   // Highlight the jump link for the series currently in view
   var jumpLinks = document.querySelectorAll(".photo-nav-link");
   if (jumpLinks.length && "IntersectionObserver" in window) {
