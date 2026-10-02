@@ -141,16 +141,16 @@ p  { margin: 0 0 1.1em; }
 
 /* Full strip when the window is tall enough. On shorter windows the band
    gives up just enough height to keep "New feature" on the first screen.
-   17% puts roughly a sixth of the trim on top and the rest on the bottom:
-   on a 1900x905 window that's ~48px off each end of the top-pinned view. */
+   10% takes a tenth of any trim off the top and the rest off the bottom,
+   so the hats keep their headroom and only the shirts give way. */
 .photo-hero img {
   display: block;
   width: 100%;
   aspect-ratio: 1800 / 879;
-  max-height: max(280px, calc(100vh - 235px));
-  max-height: max(280px, calc(100svh - 235px));
+  max-height: max(280px, calc(100vh - 184px));
+  max-height: max(280px, calc(100svh - 184px));
   object-fit: cover;
-  object-position: center 17%;
+  object-position: center 10%;
 }
 /* A phone is too narrow for the full strip to have any presence, so there the
    box is deeper and the sides give instead. */
@@ -165,6 +165,31 @@ p  { margin: 0 0 1.1em; }
   text-align: center;
   margin: 14px 0 0;
   padding-bottom: clamp(8px, 1vw, 14px);
+}
+/* Wider than a phone: the caption moves onto the photo, bottom left on the
+   page's own left edge, over a soft fade so it reads against the shirts. */
+@media (min-width: 641px) {
+  .photo-hero { position: relative; }
+  .photo-hero::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: min(150px, 40%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.62));
+    pointer-events: none;
+  }
+  .photo-hero .wrap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    z-index: 1;
+  }
+  .photo-hero-caption {
+    text-align: left;
+    color: rgba(246, 242, 234, 0.9);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    margin: 0;
+    padding-bottom: 16px;
+  }
 }
 
 /* --------------------------------------------------------------------------
