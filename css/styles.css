@@ -139,14 +139,17 @@ p  { margin: 0 0 1.1em; }
    Home photo band — the two of us, full bleed, before anything about the film
    -------------------------------------------------------------------------- */
 
-/* The file is already cropped to the band we want, so the box carries that
-   same ratio and nothing is cut at any width. */
+/* Full strip when the window is tall enough; on shorter windows the band
+   gives up height so the top of the new feature is always on the first
+   screen. Pinned to the top so only the bottom (shirt, chest) is ever lost. */
 .photo-hero img {
   display: block;
   width: 100%;
-  aspect-ratio: 1800 / 925;
+  aspect-ratio: 1800 / 907;
+  max-height: max(280px, calc(100vh - 270px));
+  max-height: max(280px, calc(100svh - 270px));
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
 }
 /* A phone is too narrow for the full strip to have any presence, so there the
    box is deeper and the sides give instead. */
