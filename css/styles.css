@@ -139,17 +139,18 @@ p  { margin: 0 0 1.1em; }
    Home photo band — the two of us, full bleed, before anything about the film
    -------------------------------------------------------------------------- */
 
-/* Full strip when the window is tall enough; on shorter windows the band
-   gives up height so the top of the new feature is always on the first
-   screen. Pinned to the top so only the bottom (shirt, chest) is ever lost. */
+/* Full strip when the window is tall enough. On shorter windows the band
+   gives up just enough height to keep "New feature" on the first screen.
+   17% puts roughly a sixth of the trim on top and the rest on the bottom:
+   on a 1900x905 window that's ~48px off each end of the top-pinned view. */
 .photo-hero img {
   display: block;
   width: 100%;
   aspect-ratio: 1800 / 879;
-  max-height: max(280px, calc(1.15 * (100vh - 270px)));
-  max-height: max(280px, calc(1.15 * (100svh - 270px)));
+  max-height: max(280px, calc(100vh - 265px));
+  max-height: max(280px, calc(100svh - 265px));
   object-fit: cover;
-  object-position: center top;
+  object-position: center 17%;
 }
 /* A phone is too narrow for the full strip to have any presence, so there the
    box is deeper and the sides give instead. */
